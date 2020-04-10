@@ -12,3 +12,10 @@
     color: red;
 }
 
+.float_right{
+    float: right
+}
+
+.float_left{
+    float: left
+}

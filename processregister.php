@@ -19,6 +19,8 @@ $department = $_POST['department'] == "" ? $errorArray['department_error'] = "Se
 $gender = $_POST['gender'] == "" ? $errorArray['gender_error'] = "Select a gender" : $_POST['gender'];
 $password = $_POST['password'] == "" ? $errorArray['password_error'] = "Password is required" : $_POST['password'];
 
+$admin = $_POST['admin'] ?? "";
+
 $arrayLength = count($errorArray);
 
 if ($arrayLength < 1) {

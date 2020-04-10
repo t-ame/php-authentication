@@ -12,11 +12,9 @@
 
     <?php
     include_once("lib/header.php");
-    if (isset($_SESSION['Loggedin']) && !empty($_SESSION['Loggedin'])) {
-        header('Location: dashboard.php');
-    }
+    include_once("lib/dashredirect.php");
     ?>
-    <h1>Login Page</h1>
+    <h3>Login Page</h3>
 
     <p>
         <span class="success_message">
@@ -25,7 +23,6 @@
     </p>
 
     <p><strong>Welcome, Please enter your details to log in.</strong></p>
-    <p>All fields are required.</p>
 
     <form action="processlogin.php" method="POST">
 
@@ -56,9 +53,8 @@
 
     </form>
 
-    <p><a href="register.php">Register</a> | <a href="forgot.php">Forgot password</a></p>
-
-    <?php session_unset(); ?>
+    <p><a href="register.php">Register</a> </p>
+    <!-- | <a href="forgot.php">Forgot password</a> -->
 </body>
 
 </html>

@@ -12,11 +12,9 @@
 
     <?php
     include_once("lib/header.php");
-    if (isset($_SESSION['Loggedin']) && !empty($_SESSION['Loggedin'])) {
-        header('Location: dashboard.php');
-    }
+    include_once("lib/dashredirect.php");
     ?>
-    <h1>Registration Page</h1>
+    <h2>Registration Page</h2>
     <hr>
 
     <p><strong>Welcome, Please enter your details to register.</strong></p>
@@ -28,6 +26,7 @@
                 <?php echo $_SESSION['errorMsg'] ?? "" ?>
             </span>
         </p>
+        <input type="hidden" name="admin" id="admin" value="">
         <p>
             <label for="first_name">First Name</label>
             <br>
@@ -75,8 +74,8 @@
             <br>
             <select name="designation" id="designation" required>
                 <option value="">-- Select Designation --</option>
-                <option value="STAFF" <?php echo isset($_SESSION['designation']) && $_SESSION['designation'] == "Staff" ? "selected" : "" ?>>Staff</option>
-                <option value="PATIENT" <?php echo isset($_SESSION['designation']) && $_SESSION['designation'] == "Patient" ? "selected" : "" ?>>Patient</option>
+                <option value="STAFF" <?php echo isset($_SESSION['designation']) && $_SESSION['designation'] == "STAFF" ? "selected" : "" ?>>Staff</option>
+                <option value="PATIENT" <?php echo isset($_SESSION['designation']) && $_SESSION['designation'] == "PATIENT" ? "selected" : "" ?>>Patient</option>
             </select>
             <span class="input_error"><?php echo $_SESSION['designation_error'] ?? "" ?></span>
         </p>
@@ -87,7 +86,7 @@
             <select name="department" id="department" required>
                 <option value="">-- Select Department --</option>
                 <option value="Urology" <?php echo isset($_SESSION['department']) && $_SESSION['department'] == "Urology" ? "selected" : "" ?>>Urology</option>
-                <option value="ENT" <?php echo isset($_SESSION['department']) && $_SESSION['department'] == "ENT" ? "selected" : "" ?>>Ear, Nose and Throat</option>
+                <option value="Pediatrics" <?php echo isset($_SESSION['department']) && $_SESSION['department'] == "ENT" ? "selected" : "" ?>>Pediatrics</option>
                 <option value="X-Ray_Lab" <?php echo isset($_SESSION['department']) && $_SESSION['department'] == "X-Ray_Lab" ? "selected" : "" ?>>X-Ray Lab</option>
             </select>
             <span class="input_error"><?php echo $_SESSION['department_error'] ?? "" ?></span>
