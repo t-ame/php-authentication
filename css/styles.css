@@ -1,0 +1,14 @@
+.input_error{
+    color: red;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.success_message{
+    color: green;
+}
+
+.error_message{
+    color: red;
+}
+
