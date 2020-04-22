@@ -30,7 +30,7 @@
         <p>
             <label for="first_name">First Name</label>
             <br>
-            <input type="text" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $_SESSION['first_name'] ?? "" ?>">
+            <input type="text" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $_SESSION['first_name'] ?? "" ?>" required>
             <span class="input_error"><?php echo $_SESSION['first_name_error'] ?? "" ?></span>
         </p>
 

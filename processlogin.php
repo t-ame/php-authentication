@@ -26,16 +26,17 @@ if (count($errorArray) < 1) {
                 $_SESSION['date_of_last_login'] = $userObject->date_of_last_login;
 
                 //TODO update date of last login
+                //TODO log login activities
                 $role = $userObject->designation;
 
                 $redLocation;
 
                 if ($role == "PATIENT") {
-                    $redLocation = 'Location: patient.php' ;
+                    $redLocation = 'Location: patient.php';
                 } else if ($role == "STAFF") {
-                    $redLocation = 'Location: medteam.php' ;
+                    $redLocation = 'Location: medteam.php';
                 } else {
-                    $redLocation = 'Location: admin.php' ;
+                    $redLocation = 'Location: admin.php';
                 }
                 header($redLocation);
                 die();
