@@ -1,9 +1,11 @@
-<?php session_start(); ?>
+<?php
+require_once("functions/user.php");
+session_start();  ?>
 
 <p>
     <a href="index.php">Home</a>
     <?php
-    if (!isset($_SESSION['Loggedin'])) {
+    if (!userLoggedIn()) {
     ?>
         <span class="float_right"> <a href="login.php">Login/Register</a> </span>
     <?php

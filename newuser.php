@@ -1,4 +1,5 @@
 <?php
+require_once("functions/alert.php");
 include_once("lib/dashboardheader.php");
 if ($_SESSION['role'] != "ADMIN") {
     $_SESSION['errorMsg'] = "Access Denied!";
@@ -14,13 +15,10 @@ if ($_SESSION['role'] != "ADMIN") {
 
 <form action="processregister.php" method="POST">
     <p>
-        <span class="error_message">
-            <?php echo $_SESSION['errorMsg'] ?? "" ?>
-        </span>
-    </p>
-    <p>
-        <span class="success_message">
-            <?php echo $_SESSION['successMsg'] ?? "" ?>
+        <span class="message">
+            <?php error("errorMsg");
+            success("successMsg");
+            warning("warnMsg"); ?>
         </span>
     </p>
 

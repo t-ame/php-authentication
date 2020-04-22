@@ -21,11 +21,6 @@ $password = $_POST['password'] == "" ? $errorArray['password_error'] = "Password
 
 $admin = $_POST['admin'] ?? "";
 
-//TODO perform extra validation on inputs
-
-$errorRedPage = $admin == "" ? "register.php" : "newuser.php";
-$successRedPage = $admin == "" ? "login.php" : "newuser.php";
-
 $arrayLength = count($errorArray);
 
 if ($arrayLength < 1) {
@@ -45,8 +40,6 @@ if ($arrayLength < 1) {
         $id = --$userCount;
         $currentTime = '';
 
-        //TODO fetch and add registration time
-
         $userObject = [
             'id' => $id,
             'first_name' => $first_name,
@@ -63,16 +56,16 @@ if ($arrayLength < 1) {
 
         file_put_contents('db/users/' . $email . '.json', json_encode($userObject));
 
-        $_SESSION['successMsg'] = "Registration successful.";
-        header('Location: ' . $successRedPage);
+        $_SESSION['successMsg'] = "Registration successful. You can now log in";
+        header('Location: login.php');
     } else {
         $_SESSION += $_POST;
         $_SESSION['password'] = "";
-        $_SESSION['errorMsg'] = "An account already exists for this email.";
-        header('Location: ' . $errorRedPage);
+        $_SESSION['errorMsg'] = "An account already exists for this email. Proceed to the Login page.";
+        header('Location: register.php');
     }
 } else {
     $_SESSION += $errorArray + $_POST;
     $_SESSION['password'] = "";
-    header('Location: ' . $errorRedPage);
+    header('Location: register.php');
 }

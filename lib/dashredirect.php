@@ -1,7 +1,8 @@
 <?php
+    require_once("functions/user.php");
 
 
-if (isset($_SESSION['Loggedin']) && !empty($_SESSION['Loggedin'])) {
+if (userLoggedIn()) {
     $role = $_SESSION['role'];
 
     if ($role == "PATIENT") {

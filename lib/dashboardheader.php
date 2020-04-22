@@ -10,9 +10,10 @@
 
 <body> 
 <?php
-include_once("lib/header.php");
+    require_once("functions/user.php");
+    include_once("lib/header.php");
 
-if (!isset($_SESSION['Loggedin'])) {
+if (!userLoggedIn()) {
     header('Location: login.php');
 }
 ?>

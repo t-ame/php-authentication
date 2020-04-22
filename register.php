@@ -12,6 +12,7 @@
 
     <?php
     include_once("lib/header.php");
+    require_once("functions/alert.php");
     include_once("lib/dashredirect.php");
     ?>
     <h2>Registration Page</h2>
@@ -23,14 +24,16 @@
     <form action="processregister.php" method="POST">
         <p>
             <span class="error_message">
-                <?php echo $_SESSION['errorMsg'] ?? "" ?>
+                <?php error("errorMsg");
+                success("successMsg");
+                warning("warnMsg"); ?>
             </span>
         </p>
         <input type="hidden" name="admin" id="admin" value="">
         <p>
             <label for="first_name">First Name</label>
             <br>
-            <input type="text" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $_SESSION['first_name'] ?? "" ?>" required>
+            <input type="text" name="first_name" id="first_name" placeholder="First Name" value="<?php echo $_SESSION['first_name'] ?? "" ?>">
             <span class="input_error"><?php echo $_SESSION['first_name_error'] ?? "" ?></span>
         </p>
 
